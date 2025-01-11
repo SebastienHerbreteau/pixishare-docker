@@ -35,10 +35,7 @@ Personnellement, je le fais tourner sur un client léger Lenovo, équipé d'un R
 
 ## Prérequis
 
-- PHP 8.4
-- Python 3.13
-- Node.js (pour les dépendances frontend)
-
+- Docker
 ---
 
 ## Installation
@@ -46,53 +43,9 @@ Personnellement, je le fais tourner sur un client léger Lenovo, équipé d'un R
 1. **Cloner le dépôt** :  
    ```bash
    git clone https://github.com/SebastienHerbreteau/pixishare.git
-   cd pixishare
    ```
 
-2. **Installer les dépendances PHP** :  
+2. **Lancer la construction du container** :  
    ```bash
-   composer install
-   ```
-
-3. **Configurer le fichier d'environnement** :  
-
-
-4. **Lancer les migrations pour la base de données** :  
-   ```bash
-   php bin/console doctrine:migrations:migrate
-   ```
-
-5. **Installer les dépendances JavaScript** :  
-   Si tu utilises **npm** :
-   ```bash
-   npm install
-   ```
-   Si tu utilises **yarn** (privilégier un seul gestionnaire) :
-   ```bash
-   yarn install
-   ```
-
-6. **Installer les dépendances Python nécessaires pour le traitement des images** :  
-   ```bash
-   pip install imageio numpy pillow
-   ```
-
-7. **Compiler les assets frontend (si nécessaire)** :  
-   Pour le mode développement :  
-   ```bash
-   npm run dev
-   ```
-   Pour le mode production :  
-   ```bash
-   npm run build
-   ```
-
-8. **Lancer les consumers ** :  
- 
-   ```bash
-    php bin/console messenger:consume
-   ```
-
-
-
-   
+   docker-compose up --build
+   ``` 
