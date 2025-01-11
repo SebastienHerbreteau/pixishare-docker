@@ -45,7 +45,7 @@ Personnellement, je le fais tourner sur un client léger Lenovo, équipé d'un R
    git clone https://github.com/SebastienHerbreteau/pixishare-docker.git
    ```
 
-2. **Lancer la construction du container** :  
+2. **Lancer la construction des containers** :  
    ```bash
    sudo docker-compose up --build
    ``` 
