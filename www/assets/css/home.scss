@@ -1,0 +1,78 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+
+.content {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+}
+
+.connection, .gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: "Homenaje", sans-serif;
+    z-index: 2;
+    padding: 10px;
+    text-decoration: none;
+
+    &:hover {
+        transform: scale(1.03);
+        transition: 0.5s ease;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+}
+
+.background {
+    position: fixed; /* Fixe l'image par rapport au viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre l'image */
+    max-width: 100%; /* Assure que l'image couvre au moins 100% de la largeur du viewport */
+}
+
+.logout {
+    z-index: 3;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    font-family: "Homenaje", sans-serif;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+
+
+

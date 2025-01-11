@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma galerie{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('gallery_css') }}
+{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="content">
+        {% for album in albums %}
+            <div class="album">
+                <h2>{{ album.name | capitalize }}</h2>
+                <p>{{ album.description }}</p>
+                <div class="container-album">
+                    <a href="{{ path('album', { 'id': album.id }) }}">
+                        {% if album.cover.filepath is defined %}
+                            <img src="{{ asset(album.cover.filepath) }}">
+                        {% else %}
+                            <img class="gallery-icon" src="{{ asset('images/galerie.png') }}">
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="album">
+            <a class="container-photo container-plus upload" href="{{ path('gallery_upload') }}">
+                <img class="plus" src="{{ asset('images/plus.png') }}" alt="plus icon">
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
+

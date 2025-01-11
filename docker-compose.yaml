@@ -1,0 +1,35 @@
+services:
+
+  database:
+    image: mysql:8.0
+    container_name: mysql8
+    environment:
+      MYSQL_ROOT_PASSWORD: 281282
+      MYSQL_DATABASE: pixishare
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    networks:
+      - app_network
+
+  php:
+    container_name: php
+    ports:
+      - 8080:80
+    volumes:
+      - ./www:/var/www/
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - app_network
+    depends_on:
+      - database
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  mysql_data:

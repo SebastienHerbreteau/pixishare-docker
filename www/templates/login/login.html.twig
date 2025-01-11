@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('login_css') }}
+{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('home') }}">
+        <img class="arrow-left" src="{{ asset('images/login/arrow-left.png') }}">
+    </a>
+
+    <div class="content">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Logout</a>
+                </div>
+            {% else %}
+                <div class="input-container">
+                    <label for="username">Email</label>
+                    <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="off" required autofocus>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    <input type="password" name="_password" id="password" class="form-control" autocomplete="off" required>
+                </div>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+                <div class="button-container">
+                    <button class="button" type="submit">
+                        Sign in
+                    </button>
+                    <p>Or</p>
+                    <a class="button" href="{{ path('register') }}">
+                        Sign up
+                    </a>
+                </div>
+
+            {% endif %}
+
+        </form>
+    </div>
+{% endblock %}

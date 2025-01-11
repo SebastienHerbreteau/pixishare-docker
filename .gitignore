@@ -1,0 +1,9 @@
+www/.env.local
+www/vendor
+www/node_modules
+www/.idea
+www/var
+www/public/build/
+www/public/images/gallery
+.idea
+

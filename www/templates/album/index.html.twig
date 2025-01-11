@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ma galerie{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('album_css') }}
+    {{ encore_entry_link_tags('justifiedGallery_css') }}
+{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container-album">
+        <a href="{{ path('gallery') }}">
+            <img class="arrow-left" src="{{ asset('images/login/arrow-left.png') }}">
+        </a>
+        <h1 class="text-center mt-5">{{ album.name }}</h1>
+        <a class="upload" href="{{ path('gallery_upload') }}">
+            <img class="plus" src="{{ asset('images/plus.png') }}" alt="plus icon">
+            <div>Ajouter des photos</div>
+        </a>
+        <div class="content">
+            {% for photo in album.photos %}
+                <div>
+                    <img class="photo" data-id="{{ photo.id }}" src="{{ asset(photo.thumbnail) }}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="modal"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('album_js') }}
+{% endblock %}
+

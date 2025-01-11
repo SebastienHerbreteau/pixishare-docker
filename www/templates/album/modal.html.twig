@@ -1,0 +1,11 @@
+{% block stylesheets %}
+    {{ encore_entry_link_tags('modal_css') }}
+{% endblock %}
+
+{% block body %}
+    <img id="photo-modal" src="{{ asset(photo.filePath) }}">
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
