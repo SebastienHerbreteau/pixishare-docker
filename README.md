@@ -47,5 +47,5 @@ Personnellement, je le fais tourner sur un client léger Lenovo, équipé d'un R
 
 2. **Lancer la construction du container** :  
    ```bash
-   docker-compose up --build
+   sudo docker-compose up --build
    ``` 
